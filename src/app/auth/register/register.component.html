@@ -43,7 +43,15 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" [disabled]="registroForm.invalid" class="btn btn-primary submit-btn btn-block">Crear cuenta</button>
+              <button type="submit" *ngIf="!(loading$ | async) ; else loading" [disabled]="registroForm.invalid" class="btn btn-primary submit-btn btn-block">
+                Crear cuenta
+              </button>
+              <ng-template #loading>
+                <button type="button" [disabled]="true" class="btn btn-primary submit-btn btn-block">
+                  <i class="fa fa-spin fa-sync"></i>
+                  Cargando...
+                </button>
+              </ng-template>
             </div>
             <div class="text-block text-center my-3">
               <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
