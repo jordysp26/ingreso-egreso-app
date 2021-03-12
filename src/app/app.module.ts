@@ -9,6 +9,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { ChartsModule } from 'ng2-charts';
+
 
 //Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +28,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    ChartsModule
 
   ],
   providers: [],
